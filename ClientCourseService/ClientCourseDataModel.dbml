@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dev_test" Class="ClientCourseDataModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=credible.database.windows.net;Initial Catalog=dev_test;User ID=candidate" SettingsObjectName="ClientCourseService.Properties.Settings" SettingsPropertyName="dev_testConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.u_course_portal" Member="CoursePortals">
+    <Type Name="CoursePortal">
+      <Column Name="course_portal_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="portal_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="course_variant_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="credit_type_cd" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="credit_type_nm" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="earned_credit" Type="System.Decimal" DbType="Decimal(3,1) NOT NULL" CanBeNull="false" />
+      <Column Name="syllabus" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="syllabus_url" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="regular_px" Type="System.Decimal" DbType="Decimal(13,4) NOT NULL" CanBeNull="false" />
+      <Column Name="sale_px" Type="System.Decimal" DbType="Decimal(13,4)" CanBeNull="true" />
+      <Column Name="sort_order" Type="System.Decimal" DbType="Decimal(10,4) NOT NULL" CanBeNull="false" />
+      <Column Name="forum_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="classroom_sz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="forum_posts_per_topic" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="display_start_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="display_finish_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="purchase_start_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="purchase_finish_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="access_start_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="access_finish_dt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="access_day" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="created_dttm" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="created_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="modified_dttm" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="modified_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="grade_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="deployment_status" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="reg_method" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="course_portal_nm" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="self_reg_enabled_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="course_display_nm" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="course_display_img" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="course_subject" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="course_topic" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="course_default_standard" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="credit_upgrade_ind" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="upgrade_price" Type="System.Decimal" DbType="Decimal(12,4)" CanBeNull="true" />
+      <Column Name="upgrade_overview" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="enable_evidence" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="credit_acceptance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="clustered_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="u_course_portal_u_registration" Member="Registrations" ThisKey="course_portal_id" OtherKey="course_portal_id" Type="Registration" />
+      <Association Name="u_portal_u_course_portal" Member="Portal" ThisKey="portal_id" OtherKey="portal_id" Type="Portal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.u_portal" Member="Portals">
+    <Type Name="Portal">
+      <Column Name="portal_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="portal_nm" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="client_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="agency_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="school_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="portal_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="marketing_partner_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="credit_grantor_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="other_credit_grantor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="direct_buyer_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="display_start_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="display_finish_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="purchase_start_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="purchase_finish_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="access_start_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="access_finish_dt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="access_day" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="title" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="keyword" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="introduction" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="promotion" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="data" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="completion" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="flyer_url" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="logo_url" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="logo" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="contact_email" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="active_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="created_dttm" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="created_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="modified_dttm" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="modified_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="theme" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="login_page_logo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="login_page_text" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="special_use" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="self_reg_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="self_reg_limit_by_teacher" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="eClassroom_logo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="self_reg_teacher_course_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="chat_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="pwd_change_rqd_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="review_mode_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="only_grade_complete_ind" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="clustered_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="u_portal_u_course_portal" Member="CoursePortals" ThisKey="portal_id" OtherKey="portal_id" Type="CoursePortal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.u_registration" Member="Registrations">
+    <Type Name="Registration">
+      <Column Name="registration_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="order_detail_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="course_portal_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="registration_dttm" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="registration_type_cd" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="drop_out_dttm" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="access_start_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="access_finish_dt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="active_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="created_dttm" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="created_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="modified_dttm" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="modified_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="complete_dttm" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="final_grade" Type="System.Decimal" DbType="Decimal(12,4)" CanBeNull="true" />
+      <Column Name="course_portal_self_reg_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="credit_upgrade_ind" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="withdrawn_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="grade_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="enrollment_status_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="last_activity_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="clustered_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="u_course_portal_u_registration" Member="CoursePortal" ThisKey="course_portal_id" OtherKey="course_portal_id" Type="CoursePortal" IsForeignKey="true" />
+      <Association Name="u_user_u_registration" Member="User" ThisKey="user_id" OtherKey="user_id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.u_user" Member="Users">
+    <Type Name="User">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="client_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="company_nm" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="title" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="department" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="first_nm" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="last_nm" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="phone1" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="phone2" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="address1" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="address2" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="county_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="postal_cd" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="sec_address1" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="sec_address2" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="sec_city" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="sec_state" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="sec_postal_cd" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="speaker_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="marketing_partner_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="credit_grantor_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="direct_buyer_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="active_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="created_dttm" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="created_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="modified_dttm" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="modified_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="notification_email_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="subject_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="grade_level_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="position_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="temp_pwd_changed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="user_agreement_accept_dttm" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="district_employee_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="state_employee_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="group_nm" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="review_mode_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="chat_ind" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="soc_sec_nmb" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="date_of_birth" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="avatar_url" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="thumbnail_url" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="clustered_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="u_user_u_registration" Member="Registrations" ThisKey="user_id" OtherKey="user_id" Type="Registration" />
+    </Type>
+  </Table>
+</Database>
